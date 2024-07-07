@@ -1,11 +1,17 @@
 CXX=g++
-FRMWRKS=-framework ApplicationServices
+FRMWRKS=-framework Carbon
 
-autoclicker: autoclicker.o
-	$(CXX) autoclicker.o $(FRMWRKS) -o autoclicker
+# autoclicker: autoclicker.o
+# 	$(CXX) autoclicker.o $(FRMWRKS) -o autoclicker
 
-autoclicker.o: autoclicker.cpp
-	$(CXX) -c autoclicker.cpp
+# autoclicker.o: autoclicker.cpp
+# 	$(CXX) -c autoclicker.cpp
+
+keylogger: keylogger.o
+	$(CXX) keylogger.o $(FRMWRKS) -o keylogger
+
+keylogger.o: keylogger.cpp
+	$(CXX) -c keylogger.cpp
 
 clean:
-	rm *.o autoclicker
+	rm *.o autoclicker keylogger

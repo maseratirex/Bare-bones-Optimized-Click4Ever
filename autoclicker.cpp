@@ -1,5 +1,4 @@
-#include <ApplicationServices/ApplicationServices.h>
-#include <time.h>
+#include <Carbon/Carbon.h>
 
 void leftMouseReleaseAtPoint(CGPoint point) {
     CGEventRef clickEvent = CGEventCreateMouseEvent(
@@ -50,19 +49,17 @@ void rightMousePressAtPoint(CGPoint point) {
 }
 
 CGPoint getMouseCursorLocation() {
-    CGEventRef dummyEventRef = CGEventCreate(NULL);
-    CGPoint mousePoint = CGEventGetLocation(dummyEventRef);
-    CFRelease(dummyEventRef);
+    CGEventRef dummyEvent = CGEventCreate(NULL);
+    CGPoint mousePoint = CGEventGetLocation(dummyEvent);
+    CFRelease(dummyEvent);
     return mousePoint;
 }
 
 int main() {
-    /*
     // Simulate a left click at (100, 100)
-    CGPoint point = { 100, 100 };
-    leftMousePressAtPoint(point);
-    leftMouseReleaseAtPoint(point);
-    */
+    // CGPoint point = { 100, 100 };
+    // leftMousePressAtPoint(point);
+    // leftMouseReleaseAtPoint(point);
     
     // Simulate a right click at the current mouse point
     rightMousePressAtPoint(getMouseCursorLocation());
